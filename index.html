@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vuesic</title>
+    <!-- Roboto Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- CSS reset -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <!-- Milligram CSS Framework -->
+    <link rel="stylesheet" href="milligram.css">
+</head>
+
+
+<body>
+    <div id="app" class="container">
+        <h1>
+            {{message}}
+        </h1>
+        <concert-create :venues="venues"></concert-create>
+        <input style="width: 200px" v-model="search" type="text" placeholder="Serach...">
+        <div class="button" @click="toggleSort()">{{sort_btn_text}}</div>
+        <concert-view v-for="concert in filtered_concerts" :concert="concert" :key="concert.id">
+            {{ concert.icon }} {{ concert.name}}
+        </concert-view>
+
+    </div>
+    <!-- Vue.js -->
+    <script type=" text/javascript " src="https://unpkg.com/vue@2.5.16/dist/vue.js "></script>
+    <script type="text/javascript " src="./BaseButton.js "></script>
+    <script type="text/javascript " src="./ConcertCreate.js "></script>
+    <script type="text/javascript " src="./ConvertView.js "></script>
+    <script type="text/javascript " src="./app.js "></script>
+</body>
+
+</html>
